@@ -2,13 +2,12 @@ from sqlalchemy import create_engine, Column, Integer, String, Float, DateTime, 
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-SQLALCHEMY_DATABASE_URL = "sqlite:///./fluidos_todos.db"
+SQLALCHEMY_DATABASE_URL = "postgresql://postgres:ObOURtLuyxFOFbiOmfJfheYCuSLFJaGv@switchback.proxy.rlwy.net:23507/railway"
 
-engine = create_engine(
-    SQLALCHEMY_DATABASE_URL, connect_args={"check_same_thread": False}
-)
+engine = create_engine(SQLALCHEMY_DATABASE_URL)
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 Base = declarative_base()
 
 class Usuario(Base):
